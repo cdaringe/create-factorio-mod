@@ -98,4 +98,12 @@ export const create = async (config: Config) => {
     devDeps
   )}`.split(" ");
   await execa(yarnCmd, yarnArgs, { stdio: "inherit", cwd: config.dirname });
+
+  console.log(
+    [
+      `\nVictory! Your mod is ready to roll. Execute the following commands to get going:`,
+      `  - cd "${config.dirname}"`,
+      `  - yarn start`,
+    ].join("\n")
+  );
 };

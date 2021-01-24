@@ -3,6 +3,9 @@
   "bin": "./build/bin.js",
   "version": "0.0.1",
   "main": "./build/index.js",
+  "files": [
+    "build"
+  ],
   "author": "cdaringe",
   "license": "MIT",
   "devDependencies": {

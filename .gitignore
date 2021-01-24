@@ -1,0 +1,5 @@
+node_modules
+build
+_esy
+**/*.log
+**/*.DS_Store

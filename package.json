@@ -1,6 +1,6 @@
 {
   "name": "create-factorio-mod",
-  "bin": "./build/bin.js",
+  "bin": "./bin.js",
   "version": "0.0.1",
   "main": "./build/index.js",
   "files": [

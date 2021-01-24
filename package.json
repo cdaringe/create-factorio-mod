@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "main": "./build/index.js",
   "files": [
-    "build"
+    "build",
+    "bin.js"
   ],
   "author": "cdaringe",
   "license": "MIT",

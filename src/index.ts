@@ -12,6 +12,7 @@ const devDeps = {
   typescript: "latest",
   "factorio-type-kit": "latest",
   "npm-run-all": "latest",
+  "typescript-to-lua": "latest",
 };
 
 const getPaths = (config: Config) => {
@@ -70,7 +71,7 @@ export const create = async (config: Config) => {
     license: "MIT",
     devDependencies: {},
     scripts: {
-      "compile:watch": "tsc -w",
+      "compile:watch": "tstl --watch",
       start: "run-p compile:watch",
     },
   };

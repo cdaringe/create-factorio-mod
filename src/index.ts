@@ -20,19 +20,20 @@ const getPaths = (config: Config) => {
     readme: resolve(config.dirname, "readme.md"),
     tsconfig: resolve(config.dirname, "tsconfig.json"),
     mod: {
-      controlLua: resolve(config.dirname, "control.lua"),
+      controlTs: resolve(config.dirname, "control.ts"),
       infoJson: resolve(config.dirname, "info.json"),
     },
   };
 };
 
-const defaultControlLua = `
+const defaultControlTs =
+  `
 const onTick = (_evt: OnTickPayload) => {
   game.print(serpent.block({ hello: "world", its_nice: "to see you" }))
 };
 
 script.on_event(defines.events.on_tick, onTick);
-`;
+`.trim() + "\n";
 
 const defaultTsconfig = {
   compilerOptions: {
@@ -81,16 +82,16 @@ export const create = async (config: Config) => {
     ),
     fs.writeFile(
       paths.readme,
-      `# ${config.projectName}\n\nCreated with [create-factorio-mod](https://github.com/cdaringe/create-factorio-mod).\n`
+      `# ${config.projectName}\n\nThe world's next best factorio mod!\n\nCreated with [create-factorio-mod](https://github.com/cdaringe/create-factorio-mod).\n`
     ),
     fs.writeFile(
       paths.tsconfig,
       JSON.stringify(defaultTsconfig, null, 2) + "\n"
     ),
-    fs.writeFile(paths.mod.controlLua, defaultControlLua),
+    fs.writeFile(paths.mod.controlTs, defaultControlTs),
     fs.writeFile(
       paths.mod.infoJson,
-      JSON.stringify(createInfoJson(config)) + "\n"
+      JSON.stringify(createInfoJson(config), null, 2) + "\n"
     ),
   ]);
   const [yarnCmd, ...yarnArgs] = `yarn add --dev ${asInstallString(

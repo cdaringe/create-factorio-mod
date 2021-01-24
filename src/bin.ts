@@ -1,6 +1,7 @@
 import { Config } from "./config";
 import meow from "meow";
 import { resolve } from "path";
+import { create } from ".";
 
 const cli = meow(
   `
@@ -37,6 +38,13 @@ async function go() {
     projectName,
     factorioVersion: cli.flags.factorioVersion || "1.0",
   };
+  try {
+    await create(config);
+  } catch (err) {
+    console.error(`failed to create new project: ${projectName}\n\n\n`);
+    console.error(err);
+    process.exit(1);
+  }
 }
 
 go();

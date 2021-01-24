@@ -40,7 +40,6 @@ const defaultTsconfig = {
     target: "esnext",
     lib: ["esnext"],
     moduleResolution: "node",
-    types: ["./node_modules/factorio-type-kit/factorio.d.ts"],
     strict: true,
     sourceMap: true,
   },
@@ -49,6 +48,7 @@ const defaultTsconfig = {
     noHeader: true,
     noImplicitSelf: true,
   },
+  include: ["./**/*", "./node_modules/factorio-type-kit/factorio.d.ts"],
 };
 
 const createInfoJson = (config: Config) => ({
